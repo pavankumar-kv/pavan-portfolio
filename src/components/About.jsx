@@ -1,14 +1,10 @@
 import React from 'react';
 import { useProfile } from '../context/ProfileContext';
-import { useTheme } from '../context/ThemeContext';
 import { 
   ShieldAlert, 
   Bot, 
   Terminal, 
   Code2, 
-  Clock, 
-  FolderGit2, 
-  Zap, 
   CheckCircle, 
   GraduationCap,
   MapPin
@@ -16,39 +12,34 @@ import {
 
 export default function About() {
   const { profile } = useProfile();
-  const { accent } = useTheme();
 
   const iconMap = {
-    ShieldAlert: <ShieldAlert className="w-5 h-5" />,
-    Bot: <Bot className="w-5 h-5" />,
-    Terminal: <Terminal className="w-5 h-5" />,
-    Code2: <Code2 className="w-5 h-5" />,
-    Clock: <Clock className="w-5 h-5" />,
-    FolderGit2: <FolderGit2 className="w-5 h-5" />,
-    Zap: <Zap className="w-5 h-5" />
+    ShieldAlert: <ShieldAlert className="w-5 h-5 text-zinc-700 dark:text-zinc-300" />,
+    Bot: <Bot className="w-5 h-5 text-zinc-700 dark:text-zinc-300" />,
+    Terminal: <Terminal className="w-5 h-5 text-zinc-700 dark:text-zinc-300" />,
+    Code2: <Code2 className="w-5 h-5 text-zinc-700 dark:text-zinc-300" />
   };
 
   return (
-    <section id="about" className="py-20 relative bg-gray-50/50 dark:bg-[#090d16]/70 border-t border-gray-100 dark:border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-20 bg-gray-50/50 dark:bg-zinc-900/40 border-t border-gray-200/80 dark:border-zinc-850">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-2 block">
-            // About Me
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-xs font-mono font-medium uppercase tracking-wider text-gray-500 dark:text-zinc-400 mb-1 block">
+            About Me
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-950 dark:text-white tracking-tight">
-            Curiosity-Driven Systems Builder
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-950 dark:text-white tracking-tight">
+            Background & Technical Focus
           </h2>
-          <div className="w-12 h-1 bg-emerald-500 mx-auto mt-3 rounded-full" />
         </div>
 
         {/* Narrative and Stats Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-14">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
           
-          {/* Detailed Story Narrative */}
-          <div className="lg:col-span-7 space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
-            <p className="font-medium text-gray-900 dark:text-gray-100">
+          {/* Narrative Text */}
+          <div className="lg:col-span-7 space-y-4 text-gray-600 dark:text-zinc-350 leading-relaxed text-sm sm:text-base">
+            <p className="font-medium text-gray-900 dark:text-zinc-100">
               {profile.personal.bio}
             </p>
             <p>
@@ -61,28 +52,25 @@ export default function About() {
                 "Tool-calling autonomous AI agents",
                 "Clean Python, React & CLI architectures"
               ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">
-                  <CheckCircle className={`w-4 h-4 flex-shrink-0 ${accent.text}`} />
+                <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-700 dark:text-zinc-300">
+                  <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                   <span>{item}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Builder Stats Grid */}
-          <div className="lg:col-span-5 grid grid-cols-2 gap-3.5">
+          {/* Clean Metric Stats Cards */}
+          <div className="lg:col-span-5 grid grid-cols-2 gap-3">
             {profile.stats?.map((stat, idx) => (
               <div 
                 key={idx}
-                className="p-5 rounded-2xl bg-white dark:bg-gray-800/90 border border-gray-200/60 dark:border-gray-750 shadow-2xs text-center flex flex-col items-center justify-center"
+                className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 text-center flex flex-col items-center justify-center"
               >
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-2.5 ${accent.bgLight} ${accent.text}`}>
-                  {iconMap[stat.icon] || <Zap className="w-5 h-5" />}
-                </div>
-                <div className="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-white">
+                <div className="text-xl sm:text-2xl font-bold text-gray-950 dark:text-white">
                   {stat.value}
                 </div>
-                <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mt-0.5">
+                <div className="text-xs text-gray-500 dark:text-zinc-400 mt-0.5">
                   {stat.label}
                 </div>
               </div>
@@ -91,24 +79,24 @@ export default function About() {
 
         </div>
 
-        {/* Core Pillars / Focus Areas */}
+        {/* 4 Core Pillars */}
         <div className="mt-8">
-          <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-5 text-left">
+          <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-zinc-100 mb-4 text-left">
             Core Areas of Focus
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {profile.pillars?.map((pillar, idx) => (
               <div 
                 key={idx}
-                className="p-5 rounded-2xl bg-white dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-750 shadow-2xs"
+                className="p-4 sm:p-5 rounded-xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800"
               >
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3.5 ${accent.bgLight} ${accent.text}`}>
-                  {iconMap[pillar.icon] || <Terminal className="w-5 h-5" />}
+                <div className="w-9 h-9 rounded-lg bg-gray-100 dark:bg-zinc-800 flex items-center justify-center mb-3">
+                  {iconMap[pillar.icon] || <Terminal className="w-4 h-4 text-zinc-400" />}
                 </div>
-                <h4 className="text-base font-bold text-gray-900 dark:text-white mb-1.5">
+                <h4 className="text-sm font-bold text-gray-950 dark:text-white mb-1">
                   {pillar.title}
                 </h4>
-                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                <p className="text-xs text-gray-600 dark:text-zinc-400 leading-relaxed">
                   {pillar.description}
                 </p>
               </div>
@@ -116,32 +104,32 @@ export default function About() {
           </div>
         </div>
 
-        {/* Academic Background Summary */}
-        <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-white dark:bg-gray-850 border border-gray-200/60 dark:border-gray-750 shadow-2xs">
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-            <GraduationCap className={`w-5 h-5 ${accent.text}`} />
+        {/* Academic History */}
+        <div className="mt-10 p-5 sm:p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800">
+          <h3 className="text-base font-bold text-gray-950 dark:text-white mb-3 flex items-center gap-2">
+            <GraduationCap className="w-4 h-4 text-gray-500" />
             <span>Academic Background</span>
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {profile.journey?.map((item, idx) => (
-              <div key={idx} className="p-4 rounded-xl bg-gray-50 dark:bg-gray-800/60 border border-gray-200/50 dark:border-gray-700/50">
-                <div className="flex items-center justify-between gap-2 mb-1.5">
-                  <span className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400">
+              <div key={idx} className="p-3.5 rounded-lg bg-gray-50 dark:bg-zinc-850 border border-gray-200/60 dark:border-zinc-800">
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <span className="text-xs font-mono font-semibold text-gray-800 dark:text-zinc-300">
                     {item.period}
                   </span>
-                  <span className="text-xs text-gray-400 flex items-center gap-1">
+                  <span className="text-[11px] text-gray-400 flex items-center gap-1">
                     <MapPin className="w-3 h-3" />
                     Bengaluru
                   </span>
                 </div>
-                <h4 className="text-sm font-bold text-gray-900 dark:text-white mb-0.5">
+                <h4 className="text-sm font-bold text-gray-900 dark:text-white">
                   {item.title}
                 </h4>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                <p className="text-xs text-gray-500 dark:text-zinc-400 mb-1.5">
                   {item.institution}
                 </p>
-                <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-xs text-gray-600 dark:text-zinc-400 leading-relaxed">
                   {item.description}
                 </p>
               </div>
