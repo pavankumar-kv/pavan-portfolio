@@ -9,7 +9,6 @@ import Projects from './components/Projects';
 import LearningLog from './components/LearningLog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import ProfileEditorModal from './components/ProfileEditorModal';
 import ProjectModal from './components/ProjectModal';
 import ArticleModal from './components/ArticleModal';
 import ResumeModal from './components/ResumeModal';
@@ -30,7 +29,6 @@ function PortfolioApp() {
       <Footer />
       
       {/* Overlays and Modals */}
-      <ProfileEditorModal />
       <ProjectModal />
       <ArticleModal />
       <ResumeModal />
