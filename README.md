@@ -1,10 +1,10 @@
-# Pavan Kumar — Personal Portfolio & Cybersecurity + AI Hub 🛡️⚡
+# Pavan Kumar — Personal Portfolio & Cybersecurity + AI Hub 
 
 A modern, responsive, and playful-corporate portfolio web application built for **Pavan Kumar** (MCA Student in Bengaluru, India) positioned as a builder in **Cybersecurity (Red Team & Pentesting)** and **Autonomous AI Agents & ML Systems**.
 
 ---
 
-## 🚀 Live Preview & Quick Start
+##  Live Preview & Quick Start
 
 ### 1. Local Development
 Make sure you have Node.js (v18+) installed. From the project directory:
